@@ -1,0 +1,1 @@
+cargo run -q 安静的打印
