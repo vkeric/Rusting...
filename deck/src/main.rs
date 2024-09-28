@@ -1,19 +1,32 @@
 // 诡异的概念...
 // 复杂的struct 和 复杂的向量
-struct Deck{
+#[derive(Debug)]
+struct Deck {
     cards: Vec<String>,
 }
 
+impl Deck{
+    fn new()-> Self{
+         let suits = ["A","B","C"];
+         let values = ["1","2","3"];
+
+         let mut cards =vec![];
+
+         for suit in suits{
+            for value in values {
+                let card = format!("{}of{}",value,suit);
+                cards.push(card);
+            }
+         }
+
+         let deck = Deck{ cards };
+         
+         return deck;
+    }
+}
 
 fn main() {
+    let deck = Deck::new();
 
-    let suits = ["Vk","is","Nb","!!"];
-    let values = ["1","2","3","4"];
-    // 绑定 _ 结构体实例
-    let deck = Deck{ cards : vec![
-
-    ]};
-
-    // println!("Hello, world!");
-    println!("Heres yours deck : {}", deck );
+    println!("{:#?}",deck);
 }
